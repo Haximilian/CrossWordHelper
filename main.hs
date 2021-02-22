@@ -7,10 +7,12 @@ import Data.Char
 -- @Returns 		A List of strings with all the words
 -- 
 
-createDictionary = do
-    contents <- readFile "./words.txt"
-    let words = lines contents
-    return ((map.map) toLower words)
+createDictionary :: String -> IO [String]
+createDictionary path = 
+    do
+        contents <- readFile path
+        let words = lines contents
+        return (map $ toLower words)
 
     
 -- 
@@ -41,7 +43,7 @@ mainProgram dictionary =
         -- 3b. Else check word
         else do
             let outputList = filter (\word -> checkWord word query) dictionary
-            print "Here are your words for " ++ query ++ ":"
+            print ("Here are your words for " ++ query ++ ":")
             print outputList
             mainProgram dictionary
 
