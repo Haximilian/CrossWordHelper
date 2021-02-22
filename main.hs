@@ -20,7 +20,7 @@ createDictionary path =
 -- @Implementation	_
 -- @Returns			_
 -- 
-checkWord word pattern = lengthMatch && wordMatch
+checkWord pattern word = lengthMatch && wordMatch
     where
         lengthMatch = (length word == length pattern)
         wordMatch = foldr (\(w, p) acc -> ((w == p) || (w == '?')) && acc) True $ zip word pattern
