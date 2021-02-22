@@ -14,7 +14,16 @@ createDictionary path =
         let words = lines contents
         return (map (map toLower) words)
 
-    
+asterixMatch :: String -> String -> Boolean
+asterixMatch [] [] = True
+asterixMatch [] word = False
+asterixMatch pattern [] = False
+asterixMatch p:rPattern w:rWord =
+    if p == '*'
+    then (asterixMatch rPattern w:rWord) || (asterixMatch p:rPattern rWord)
+    else
+        (p == w || p == '?') && asterixMatch rPattern rWord
+
 -- 
 -- checkWord
 -- @Implementation	_
