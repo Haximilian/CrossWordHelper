@@ -14,16 +14,16 @@ createDictionary path =
         let words = lines contents
         return (map (map toLower) words)
 
-    
--- 
--- checkWord
--- @Implementation	_
--- @Returns			_
--- 
-checkWord pattern word = lengthMatch && wordMatch
-    where
-        lengthMatch = (length word == length pattern)
-        wordMatch = foldr (\(w, p) acc -> ((w == p) || (w == '?')) && acc) True $ zip word pattern
+asterixMatch :: String -> String -> Bool
+asterixMatch [] [] = True
+asterixMatch [] word = False
+asterixMatch "*" [] = True
+asterixMatch pattern [] = False
+asterixMatch (p:rPattern) (w:rWord) =
+    if p == '*'
+    then (asterixMatch rPattern $ w:rWord) || (asterixMatch (p:rPattern) rWord)
+    else
+        (p == w || p == '?') && asterixMatch rPattern rWord
 
 main = 
     do
@@ -42,7 +42,7 @@ mainProgram dictionary =
         then return ()
         -- 3b. Else check word
         else do
-            let outputList = filter (\word -> checkWord word query) dictionary
+            let outputList = filter (\word -> asterixMatch query word) dictionary
             print ("Here are your words for " ++ query ++ ":")
             print outputList
             print "\n"
