@@ -45,6 +45,7 @@ mainProgram dictionary =
             let outputList = filter (\word -> checkWord word query) dictionary
             print ("Here are your words for " ++ query ++ ":")
             print outputList
+            print "\n"
             mainProgram dictionary
 
 
