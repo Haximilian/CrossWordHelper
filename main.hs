@@ -1,20 +1,17 @@
 import System.IO 
-import qualified Data.Text    as Text
-import qualified Data.Text.IO as Text
+import Data.Char
 
 -- 
--- create 
+-- createDictionary 
 -- @Implementation 	Creates the dictionary list of all the words from words.txt
 -- @Returns 		A List of strings with all the words
 -- 
-createDictionary :: p -> IO [Text.Text]
-createDictionary dictionaryPath = do fmap Text.lines (Text.readFile "./words.txt"
--- unpack :: Text -> String
 
---
+createDictionary = do
+    contents <- readFile "./words.txt"
+    let words = lines contents
+    return ((map.map) toLower words)
 
-createDictionary :: String -> IO [String]
-createDictionary dictionaryPath = do fmap Text.lines (Text.readFile "./words.txt")
     
 -- 
 -- checkWord
