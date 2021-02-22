@@ -33,7 +33,7 @@ main =
 mainProgram :: [String] -> IO ()
 mainProgram dictionary =
     do
-    	-- 1. Prompt for user input
+        -- 1. Prompt for user input
         print "Welcome to UBC CrossWordHelper. To find answers to your crossword, please enter in a keyword. Use the '?' question-mark for any character."
         -- 2. Get user input
         query <- getLine
