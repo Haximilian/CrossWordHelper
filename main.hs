@@ -12,7 +12,7 @@ createDictionary path =
     do
         contents <- readFile path
         let words = lines contents
-        return (map $ toLower words)
+        return (map (map toLower) words)
 
     
 -- 
