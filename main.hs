@@ -40,7 +40,7 @@ mainProgram dictionary =
         then return ()
         -- 3b. Else check word
         else do
-            outputList = filter (\word -> checkWord word query) dictionary
+            let outputList = filter (\word -> checkWord word query) dictionary
             print "Here are your words for " ++ query ++ ":"
             print outputList
             mainProgram dictionary
