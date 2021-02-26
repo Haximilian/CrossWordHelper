@@ -14,6 +14,9 @@ createDictionary path =
         let words = lines contents
         return (map (map toLower) words)
 
+-- Checks if given word matches given pattern
+-- ? matches any individual letter and * matches any number of letters
+-- @Returns       Boolean representing whether word and pattern match
 asterixMatch :: String -> String -> Bool
 asterixMatch [] [] = True
 asterixMatch [] word = False
@@ -30,6 +33,7 @@ main =
         dictionary <- createDictionary "./words.txt"
         mainProgram dictionary
 
+-- Interacts with user input
 mainProgram :: [String] -> IO ()
 mainProgram dictionary =
     do
