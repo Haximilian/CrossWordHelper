@@ -30,7 +30,7 @@ asterixMatch (p:rPattern) (w:rWord) =
 
 main = 
     do
-        dictionary <- createDictionary "./words.txt"
+        dictionary <- createDictionary "./backup.txt"
         mainProgram dictionary
 
 -- Interacts with user input
