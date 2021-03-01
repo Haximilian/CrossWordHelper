@@ -12,8 +12,9 @@ next (Node children) queryChar =
 resolveQuery :: Tree -> String -> Tree
 resolveQuery None _ = None
 resolveQuery root query =
-    foldl (\acc curr -> next acc curr) root query
+    foldl next root query
 
+main :: IO ()
 main = iteration None
 
 iteration :: Tree -> IO ()

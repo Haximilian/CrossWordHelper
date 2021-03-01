@@ -1,5 +1,6 @@
-import Data.Char
+import Data.Char ( toLower )
 
+createDictionary :: IO [[Char]]
 createDictionary = do
     contents <- readFile "./words.txt"
     let words = lines contents
