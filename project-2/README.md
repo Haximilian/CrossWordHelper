@@ -26,6 +26,7 @@ ___
 - We'll learn about ways for a user to interact with the command line using prolog
 
 **Conclusions**
+
 We have found prolog to be very efficient at implementing the crossword solver. The logic required for the solver algorithm was much easier to write in Prolog than in Haskell, and therefore our code was shorter and simpler. Howeever, we found that Haskell has nicer built in methods to interact with the user than prolog. User interaction through the console is less intuitive in prolog and makes use of the program less clean. Further, we found it more difficult to implement a recursive algorithm that operates on strings in Prolog, and ended up modelling the words as an array.
 ___
 
