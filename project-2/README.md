@@ -11,7 +11,7 @@ ___
 
 - The program is a crossword solver.
 - The input is an array, representing a word, with one or more missing letters in the form of a question-mark (?), for example: `[?, e, l, l, o]`, and a variable such as Result to store the output.
-- The output is a list of all the words matching that format, in this case: `Result="Cello"; Result="Hello"; and Result="Jello"`.
+- The output is a list of all the words matching that format, in this case: `Result=Cello; Result=Hello; and Result=Jello`.
 - The program interacts with a user on the command line.
 - The program provides an example of a crossword game the user can play from the command line while using the crossword helper
 
@@ -30,21 +30,40 @@ ___
 ## How to Run
 
 ```
-$ ghci
-GHCi, version 8.6.5: http://www.haskell.org/ghc/  :? for help
+$ swipl
+Welcome to SWI-Prolog (threaded, 64 bits, version 8.2.4)
 
--- Load the main program with `:l main`
-Prelude> :l main 
+-- Load the main program with `[crossword].`
+?- [crossword].
+| true
 
--- Call the main (starter) function once loaded with `main`
-*Main> main
+-- Call the crosswordSolver function with a test input once loaded with `crossword`
+?- crosswordSolver([h,e,l,?,o], Result).
+Result=hello
 
-Welcome to UBC CrossWordHelper! 
-To find answers to ythe crossword, please enter in a keyword. 
-Use the '?' question-mark for any character. 
-Type '/quit' to quit the program.
-_
+-- press ; to get other solutions until the program outputs false
 
+-- use viewBoard to view sample crossword puzzle
+?- viewboard.
+    0 1 2 3 4 5 6 7
+0  [-,-,-,-,-,t,-,-]
+1  [-,*,e,*,*,o,-,-]
+2  [-,-,*,-,-,*,-,-]
+3  [-,-,*,-,-,*,i,m]
+4  [m,-,h,*,l,*,-,-]
+5  [*,-,-,*,-,-,-,-]
+6  [*,a,*,e,-,-,-,-]
+7  [*,-,-,-,-,-,-,-]
+true.
+
+-- use checkBoard to edit sample crossword puzzle
+?- addWord([h,e,l,l,o], 1, 1, horizontal).
+true 
+
+-- use checkBoard to check your solution for certain words
+-- checkBoard takes takes in a word, coord, and orientation (horzional or vertical), as checkBoard(word, x_coord, y_coord, orientation)
+?- checkBoard(hello, 1, 1, horizontal).
+true.
 ```
 
 ___
