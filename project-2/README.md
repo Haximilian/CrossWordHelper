@@ -56,6 +56,6 @@ https://wiki.ubc.ca/Documentation:CrossWordHelperProlog
 
 
 **Github Repository:** 
-https://github.com/Haximilian/CrossWordHelper
+https://github.com/Haximilian/CrossWordHelper/tree/master/project-2
 
 ___
