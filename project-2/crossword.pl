@@ -47,12 +47,12 @@ checkBoard(aim, 3, 5, horizontal).
 %   Updates internal state.
 % 
 addWord([], _, _, _).
-addWord([H|T], X, Y, horizontal) :-
+addWord([H|T], Y, X, horizontal) :-
   updateBoard(H, X, Y),
   NextX is X + 1,
   addWord(T, NextX, Y, horizontal).
 
-addWord([H|T], X, Y, vertical) :-
+addWord([H|T], Y, X, vertical) :-
   updateBoard(H, X, Y),
   NextY is Y + 1,
   addWord(T, X, NextY, vertical).
@@ -67,11 +67,13 @@ addWord([H|T], X, Y, vertical) :-
 %     direction = vertical | horizontal
 % 
 updateBoard(Letter, X, Y) :-
+  UpX is X + 1,
+  UpY is Y + 1,
   state(E),
-  nth1(Y, E, S),
-  arrayUpdate(S, New, X, Letter),
-  arrayUpdate(E, NewState, Y, New),
-  retractall(state(X)),
+  nth1(UpY, E, S),
+  arrayUpdate(S, New, UpX, Letter),
+  arrayUpdate(E, NewState, UpY, New),
+  retractall(state(UpX)),
   asserta(state(NewState)).
 
 arrayUpdate([H|OT], [H|NT], Index, Element) :-
