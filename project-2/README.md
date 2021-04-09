@@ -10,20 +10,20 @@ ___
 **What is the problem?**
 
 - The program is a crossword solver.
-- The input is a word with one or more missing letters in the form of a question-mark (`"?"`), for example: `"?ello"`.
-- The output is a list of all the words matching that format, in this case: `"Cello", "Hello", and "Jello"`.
+- The input is an array, representing a word, with one or more missing letters in the form of a question-mark (?), for example: [?, e, l, l, o], and a variable such as Result to store the output.
+- The output is a list of all the words matching that format, in this case: `Result="Cello"; Result="Hello"; and Result="Jello"`.
 - The program interacts with a user on the command line.
+- The program provides an example of a crossword game the user can play from the command line while using the crossword helper
 
 **What is the something extra?**
 
-- The program will take the asterisk (`"*"`) to represent one or more missing letters.
-- The program takes care of parsing any whitespace that is accidentally used at the front or end of an input string.
+- The program will take the asterisk (`*`) to represent one or more missing letters.
+- The program will have a crossword game the user can interact with
 
 **What did we learn from doing this?**
 
-- We'll learn about various data structures such as a prefix-trees.
-- We'll use these data structures to store and query words.
-- Further more, we'll gain practice with the io monad. On startup, the program will read over a list of words in a language and create any necessary data structures.
+- We'll learn about implementing recursive algorithms in prolog
+- We'll learn about ways for a user to interact with the command line using prolog
 
 ___
 
