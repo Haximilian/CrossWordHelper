@@ -10,7 +10,7 @@ ___
 **What is the problem?**
 
 - The program is a crossword solver.
-- The input is an array, representing a word, with one or more missing letters in the form of a question-mark (?), for example: [?, e, l, l, o], and a variable such as Result to store the output.
+- The input is an array, representing a word, with one or more missing letters in the form of a question-mark (?), for example: `[?, e, l, l, o]`, and a variable such as Result to store the output.
 - The output is a list of all the words matching that format, in this case: `Result="Cello"; Result="Hello"; and Result="Jello"`.
 - The program interacts with a user on the command line.
 - The program provides an example of a crossword game the user can play from the command line while using the crossword helper
@@ -52,7 +52,7 @@ ___
 ## Links
 
 **CPSC 312 Wiki - CrosswordHelper:** 
-https://wiki.ubc.ca/CrossWordHelper
+https://wiki.ubc.ca/Documentation:CrossWordHelperProlog
 
 
 **Github Repository:** 
