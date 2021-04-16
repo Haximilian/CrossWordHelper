@@ -50,12 +50,12 @@ addWord([], _, _, _).
 addWord([H|T], Y, X, horizontal) :-
   updateBoard(H, X, Y),
   NextX is X + 1,
-  addWord(T, NextX, Y, horizontal).
+  addWord(T, Y, NextX, horizontal).
 
 addWord([H|T], Y, X, vertical) :-
   updateBoard(H, X, Y),
   NextY is Y + 1,
-  addWord(T, X, NextY, vertical).
+  addWord(T, NextY, X, vertical).
 
 
 % 
@@ -73,7 +73,7 @@ updateBoard(Letter, X, Y) :-
   nth1(UpY, E, S),
   arrayUpdate(S, New, UpX, Letter),
   arrayUpdate(E, NewState, UpY, New),
-  retractall(state(UpX)),
+  retractall(state(_)),
   asserta(state(NewState)).
 
 arrayUpdate([H|OT], [H|NT], Index, Element) :-
@@ -125,7 +125,7 @@ crosswordSolver(Input, Result) :-
 %   Internal predicate that searches for matching patterns. 
 %   Match Solver. Support for ?.
 % 
-patternMatch([?], [L]).
+patternMatch([?], [_]).
 patternMatch([L], [L]).
 patternMatch([?|LT], [_|Tail]) :- patternMatch(LT, Tail).
 patternMatch([LH|LT], [LH|Tail]) :- patternMatch(LT, Tail).
